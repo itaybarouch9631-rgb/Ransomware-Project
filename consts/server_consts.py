@@ -1,0 +1,1 @@
+KEY_BYTES_SIZE = 32

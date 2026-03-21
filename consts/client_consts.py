@@ -1,0 +1,1 @@
+NONCE_SIZE = 8

