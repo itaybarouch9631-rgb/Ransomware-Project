@@ -4,7 +4,7 @@ This project is Ransomware attack. It demonstrates the lifecycle of an infection
  
 
 How it Works:
-1. **Silent Infection**==: Upon execution, the client automatically connects to the server, receives an AES key, and encrypts the target directory without user intervention.
+1. **Silent Infection**: Upon execution, the client automatically connects to the server, receives an AES key, and encrypts the target directory without user intervention.
 2. **Hybrid Encryption**: 
     * **AES-256**: Used for high-speed file encryption.
     * **RSA-2048**: Used to protect the AES keys within the server's database.
@@ -65,4 +65,4 @@ Restore Files:
 Run the client again. It will detect the "Paid" status, receive the key, and decrypt everything.
 
 IMPORTANT!
-This project is for educational and research purposes only. It was created to help cybersecurity students understand the mechanics of ransomware and how to defend against it. Do not use this code for any malicious activities.
+This project is for educational and research purposes only. It was created to help me and other cybersecurity students understand the mechanics of ransomware and how to defend against it.
