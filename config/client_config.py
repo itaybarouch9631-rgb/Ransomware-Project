@@ -9,5 +9,5 @@ class ClientConfig:
     port: int = 8443
     cafile: str = "server.crt"
     hostname: str = "localhost"
-    check_hostname: bool = True  # Set True in production with real certs
+    check_hostname: bool = True
 
