@@ -1,17 +1,11 @@
 import struct
-import socket
-import ssl
-from typing import Union
-
 from consts.shared_consts import MESSAGE_BYTES_SIZE
 
-SocketType = Union[socket.socket, ssl.SSLSocket]
-
-def send_msg(sock: SocketType, data: bytes) -> None:
+def send_msg(sock, data: bytes) -> None:
     length_prefix = struct.pack("!I", len(data))
     sock.sendall(length_prefix + data)
 
-def recvall(sock: SocketType, n: int) -> bytes | None:
+def recvall(sock, n: int) -> bytes | None:
     data = bytearray()
     while len(data) < n:
         packet = sock.recv(n - len(data))
@@ -20,7 +14,7 @@ def recvall(sock: SocketType, n: int) -> bytes | None:
         data.extend(packet)
     return bytes(data)
 
-def recv_msg(sock: SocketType) -> bytes | None:
+def recv_msg(sock) -> bytes | None:
     raw_len = recvall(sock, MESSAGE_BYTES_SIZE)
     if not raw_len:
         return None
