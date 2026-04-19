@@ -9,8 +9,8 @@ def main() -> None:
 
     handler = ClientHandler()
 
-    encryption_server = SecureServer(server_config=server_config, tls_config=tls_config, handler=handler)
-    encryption_server.start()
+    ransomware_server = SecureServer(server_config=server_config, tls_config=tls_config, handler=handler)
+    ransomware_server.start()
 
 
 if __name__ == "__main__":
